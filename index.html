@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نادي SHPOOV</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Preloader & Glitch Entry Animation */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* From Uiverse.io by andrew-demchenk0 */
+        .glitch {
+            position: relative;
+            font-size: 80px;
+            /* Increased size for impact */
+            font-weight: 900;
+            line-height: 1.2;
+            color: #fff;
+            letter-spacing: 5px;
+            z-index: 1;
+            animation: shift 1s ease-in-out infinite alternate;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .glitch:before,
+        .glitch:after {
+            display: block;
+            content: attr(data-glitch);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.8;
+        }
+
+        .glitch:before {
+            animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+            color: #ff0000;
+            /* Changed to match SHPOOV red */
+            z-index: -1;
+        }
+
+        .glitch:after {
+            animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+            color: #333;
+            /* Dark gray */
+            z-index: -2;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-3px, 3px);
+            }
+
+            40% {
+                transform: translate(-3px, -3px);
+            }
+
+            60% {
+                transform: translate(3px, 3px);
+            }
+
+            80% {
+                transform: translate(3px, -3px);
+            }
+
+            to {
+                transform: translate(0);
+            }
+        }
+
+        @keyframes shift {
+
+            0%,
+            40%,
+            44%,
+            58%,
+            61%,
+            65%,
+            69%,
+            73%,
+            100% {
+                transform: skewX(0deg);
+            }
+
+            41% {
+                transform: skewX(10deg);
+            }
+
+            42% {
+                transform: skewX(-10deg);
+            }
+
+            59% {
+                transform: skewX(40deg) skewY(10deg);
+            }
+
+            60% {
+                transform: skewX(-40deg) skewY(-10deg);
+            }
+
+            63% {
+                transform: skewX(10deg) skewY(-5deg);
+            }
+
+            70% {
+                transform: skewX(-50deg) skewY(-20deg);
+            }
+
+            71% {
+                transform: skewX(10deg) skewY(-10deg);
+            }
+        }
+
+        /* Hero Animation */
+        .hero-title-animation {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slide-up-fade 1s ease-out 1.8s forwards;
+            position: relative;
+            display: inline-block;
+        }
+
+        @keyframes slide-up-fade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .red-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 80%;
+            height: 15px;
+            background-color: #ff0000;
+            clip-path: polygon(0% 40%, 100% 0%, 95% 100%, 5% 80%);
+            z-index: -1;
+            transform: rotate(-2deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader / Entry Animation -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <h1 class="glitch" data-glitch="SHPOOV">SHPOOV</h1>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <!-- الشعار (يسار حسب التنسيق السابق) -->
+            <div class="logo">
+                <h1>SHPOOV</h1>
+            </div>
+
+            <div class="nav-group">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#home" class="active">الرئيسية</a></li>
+                        <li><a href="#facilities">المرافق</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#pricing">الاشتراكات</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle">
+                    <span class="bar" style="width: 30px;"></span>
+                    <span class="bar" style="width: 20px; margin-left: auto;"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title-large hero-title-animation red-underline">SHPOOV</h1>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section id="about" class="welcome-section">
+        <div class="container">
+            <div class="welcome-grid">
+                <div class="welcome-image">
+                    <!-- Placeholder Image -->
+                    <img src="images/welcome.jpg" alt="صورة ترحيبية"
+                        onerror="this.src='https://via.placeholder.com/600x400/333/f00?text=Gym+Image'">
+                </div>
+                <div class="welcome-text">
+                    <span class="sub-heading">عن الشركة</span>
+                    <h2>مرحباً بكم في نادينا</h2>
+                    <p>نحن نقدم أفضل تجربة رياضية متكاملة لضمان تحقيق أهدافك البدنية والصحية. لدينا مدربون محترفون
+                        ومعدات حديثة تساعدك على الوصول لأقصى إمكاناتك.</p>
+                    <p>انضم إلينا اليوم واستمتع ببيئة رياضية محفزة ومجتمع داعم لرحلتك الرياضية. نحن نهتم بكل تفاصيل
+                        تجربتك من لحظة دخولك للنادي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="facilities-section">
+        <h2 class="big-title">مرافق النادي</h2>
+        <div class="facilities-gallery">
+            <!-- 5 Slanted Images -->
+            <div class="facility-item"><img src="images/f1.jpg"
+                    onerror="this.src='https://via.placeholder.com/400x800/222/f00?text=1'" alt="مرفق 1"></div>
+            <div class="facility-item"><img src="images/f2.jpg"
+                    onerror="this.src='https://via.placeholder.com/400x800/333/f00?text=2'" alt="مرفق 2"></div>
+            <div class="facility-item"><img src="images/f3.jpg"
+                    onerror="this.src='https://via.placeholder.com/400x800/444/f00?text=3'" alt="مرفق 3"></div>
+            <div class="facility-item"><img src="images/f4.jpg"
+                    onerror="this.src='https://via.placeholder.com/400x800/555/f00?text=4'" alt="مرفق 4"></div>
+            <div class="facility-item"><img src="images/f5.jpg"
+                    onerror="this.src='https://via.placeholder.com/400x800/666/f00?text=5'" alt="مرفق 5"></div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section">
+        <div class="container">
+            <!-- عكسنا الاتجاه في الكود ليناسب التصميم -->
+            <div class="welcome-grid" style="direction: ltr;">
+                <div class="welcome-image">
+                    <img src="images/vision.jpg" alt="رؤيتنا"
+                        onerror="this.src='https://via.placeholder.com/600x400/333/f00?text=Vision'">
+                </div>
+                <!-- النصوص هنا -->
+                <div class="welcome-text" style="text-align: right; direction: rtl;">
+                    <h2 class="big-title" style="text-align: right; font-size: 5rem;">رؤية النادي</h2>
+
+                    <div class="mission-item">
+                        <div class="mission-number">01</div>
+                        <p>أن نكون الوجهة الأولى للرياضيين والمحترفين في المنطقة، ونقدم أعلى معايير الجودة في التدريب.
+                        </p>
+                    </div>
+
+                    <div class="mission-item">
+                        <div class="mission-number">02</div>
+                        <p>بناء مجتمع رياضي صحي وواعي يساهم في تحسين جودة الحياة للجميع من خلال الرياضة.</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-container">
+                <div class="vertical-title">مهمتنا</div>
+                <div class="mission-list">
+                    <div class="mission-item">
+                        <div class="mission-number">01</div>
+                        <div>
+                            <h3>مهمتنا الأساسية</h3>
+                            <p>توفير بيئة تدريبية احترافية وآمنة للجميع.</p>
+                        </div>
+                    </div>
+                    <div class="mission-item">
+                        <div class="mission-number">02</div>
+                        <div>
+                            <h3>التركيز المجتمعي</h3>
+                            <p>دعم المجتمع المحلي وتعزيز ثقافة الرياضة للجميع.</p>
+                        </div>
+                    </div>
+                    <div class="mission-item">
+                        <div class="mission-number">03</div>
+                        <div>
+                            <h3>التميز في التدريب</h3>
+                            <p>استخدام أحدث الأساليب العلمية في التدريب البدني.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="welcome-image" style="width: 40%">
+                    <img src="images/mission.jpg" alt="مهمتنا"
+                        onerror="this.src='https://via.placeholder.com/400x600/333/f00?text=Mission'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2 class="big-title">باقات الاشتراك</h2>
+            <div class="pricing-grid">
+
+                <!-- Card 1: Half Year -->
+                <div class="pricing-card">
+                    <h3>نصف سنوي</h3>
+                    <div class="price">4,598.85 <span>ر.س</span></div>
+                    <p class="duration">مدة 6 أشهر</p>
+                    <ul class="features">
+                        <li>دخول غير محدود للنادي</li>
+                        <li>برنامج تدريبي مجاني</li>
+                        <li>دخول حمام السباحة</li>
+                    </ul>
+                    <a href="payment.html?plan=نصف سنوي&price=4598.85" class="btn-subscribe">اشترك الآن</a>
+                </div>
+
+                <!-- Card 2: Annual -->
+                <div class="pricing-card popular">
+                    <div class="badge">الأكثر طلباً</div>
+                    <h3>سنوي</h3>
+                    <div class="price">6,898.85 <span>ر.س</span></div>
+                    <p class="duration">مدة 12 شهر</p>
+                    <ul class="features">
+                        <li>جميع مميزات النصف سنوي</li>
+                        <li>جلسات تدريب شخصي (3 جلسات)</li>
+                        <li>تجميد الاشتراك (30 يوم)</li>
+                    </ul>
+                    <a href="payment.html?plan=سنوي&price=6898.85" class="btn-subscribe">اشترك الآن</a>
+                </div>
+
+                <!-- Card 3: Founders -->
+                <div class="pricing-card">
+                    <h3>اشتراك المؤسسين</h3>
+                    <div class="price">9,200.00 <span>ر.س</span></div>
+                    <p class="duration">مدة 24 شهر</p>
+                    <ul class="features">
+                        <li>اشتراك لمدة سنتين</li>
+                        <li>خدمة كبار الشخصيات (VIP)</li>
+                        <li>دعوات خاصة للفعاليات</li>
+                        <li>تجميد مفتوح</li>
+                    </ul>
+                    <a href="payment.html?plan=اشتراك المؤسسين&price=9200.00" class="btn-subscribe">اشترك الآن</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="main-footer">
+        <div class="container">
+            <h2 class="big-title" style="font-size: 2rem;">SHPOOV</h2>
+            <div class="footer-nav">
+                <a href="#home">الرئيسية</a>
+                <a href="#about">من نحن</a>
+                <a href="#facilities">المرافق</a>
+                <a href="#contact">تواصل معنا</a>
+            </div>
+            <p class="copyright">جميع الحقوق محفوظة &copy; 2024 نادي SHPOOV.</p>
+        </div>
+    </footer>
+
+    <script>
+        // التعامل مع شاشة التحميل (Preloader)
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.classList.add('fade-out');
+                }, 1500); // يختفي بعد 1.5 ثانية
+            }
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
